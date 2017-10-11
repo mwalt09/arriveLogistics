@@ -1,11 +1,12 @@
 import React,  { Component } from 'react';
 import { connect } from 'react-redux';
-import { location } from '../actions/index';
+import { location } from '../actions';
 import { Link } from 'react-router-dom';
-import { selectCarrier } from '../actions/index';
+import { selectCarrier } from '../actions';
 import { bindActionCreators } from 'redux';
 
 class CarrierList extends Component {
+
 
   renderHelper(data) {
   
@@ -52,7 +53,7 @@ class CarrierList extends Component {
     return (
       <div>
         <h3>{location}</h3>
-        <div className="col-sm-6">
+        <div className="col-sm-12">
           <table className="table table-hover">
             <thead>
               <tr>
@@ -62,7 +63,6 @@ class CarrierList extends Component {
               {this.renderCarrier(this.props.city)}
           </table>
         </div>
-        
       </div>
     );
   }

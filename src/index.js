@@ -5,14 +5,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import promise from "redux-promise";
 import { createStore, applyMiddleware } from "redux";
 
-import reducers from "./reducers";
+import rootReducer from "./reducers";
 import CarrierCity from "./containers/search_bar";
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={createStoreWithMiddleware(rootReducer)}>
     <BrowserRouter>
       <div>
         <Switch>

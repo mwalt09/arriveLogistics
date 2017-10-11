@@ -12,7 +12,6 @@ export function fetchCarrierCity(city) {
   const url = `${ROOT_URL}s/${city}`;
   const request = axios.get(url);
 
-
   return {
     type: FETCH_CARRIER_CITY,
     payload: request
@@ -21,11 +20,12 @@ export function fetchCarrierCity(city) {
 
 export function selectCarrier(id) {
   const url = `${ROOT_URL}Details/${id.Id}`;
-  const request = axios.get(url);
-  console.log(request);
-
-  return {
-    type: SELECTED_CARRIER,
-    payload: request
-  };
+  const request = axios.get(url)
+    .then(function (response) {
+      console.log(response);
+      return {
+        type: SELECTED_CARRIER,
+        payload: response
+      };
+    });
 }
