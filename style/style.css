@@ -1,3 +1,23 @@
 .details {
   float: right;
 }
+
+.search {
+  margin-top: 3em;
+}
+
+.cityName {
+  height: 2em;
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+.carName {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.tbHead {
+  font-size: 1.3em;  
+}

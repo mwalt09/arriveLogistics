@@ -4,63 +4,42 @@ import { location } from '../actions';
 import { Link } from 'react-router-dom';
 import { selectCarrier } from '../actions';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 class CarrierList extends Component {
 
+  renderCarrier() {
+    console.log(this.props.city);
 
-  renderHelper(data) {
-  
-    return (
-      <tr key={data.Name}>
-        <td className="data">
-          {data.Name}
-          <button 
-            key={data.Id}
-            onClick={() => selectCarrier(data)}
-            className="details btn btn-primary">Details</button>
-        </td>
-      </tr>
-    );
-  }
-
-  renderCarrier(cityData) {
-
-    if (cityData.length === 0) {
-      return;
-    } 
-    else if (cityData[0] === `No carriers found with provided city`) {
-      // Needs more work to make this more functional looking
+    return _.map(this.props.city, city => {
       return (
-        <tbody>
-          <tr>
-            <td>{cityData[0]}</td>
-          </tr>
-        </tbody>
+        <tr key={city.Name}>
+          <td className='data'>
+            {city.Name}
+            <Link
+              key={city.Id}
+              to={`/carrierDetails/${city.Id}`}
+              className='details btn btn-primary'>Details</Link>
+          </td>
+        </tr>
       );
-    }
-    else {
-      const array = cityData[0];
-      return (
-        <tbody>
-          {array.map(this.renderHelper)}
-        </tbody>
-      );
-    }
+    });
   }
 
   render() {
-    
     return (
-      <div>
-        <h3>{location}</h3>
+      <div className="container">
+        <h3 className="cityName">{location}</h3>
         <div className="col-sm-12">
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>Carrier</th>
+                <th className="tbHead">Carrier</th>
               </tr>
             </thead>
+            <tbody>
               {this.renderCarrier(this.props.city)}
+            </tbody>
           </table>
         </div>
       </div>

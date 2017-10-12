@@ -28,7 +28,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onFormSubmit} className="input-group">
+        <form onSubmit={this.onFormSubmit} className="input-group search">
           <input 
             placeholder="Find carriers in your city"
             className="form-control"
