@@ -9,7 +9,6 @@ import _ from 'lodash';
 class CarrierList extends Component {
 
   renderCarrier() {
-    console.log(this.props.city);
 
     return _.map(this.props.city, city => {
       return (

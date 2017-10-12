@@ -24,7 +24,6 @@ class ShowDetails extends Component {
   render() {
     const { selected } = this.props;
     
-    console.log('Selected:', selected);
 
     if (!selected) {
       return <div>Loading...</div>
