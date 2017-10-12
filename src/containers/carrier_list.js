@@ -10,6 +10,16 @@ class CarrierList extends Component {
 
   renderCarrier() {
 
+    const help = this.props.city.undefined;
+    
+    if (help === 'y') {
+      return (
+        <tr>
+          <td>No carriers found within searched city.</td>
+        </tr>
+      );
+    }
+
     return _.map(this.props.city, city => {
       return (
         <tr key={city.Name}>
@@ -26,6 +36,7 @@ class CarrierList extends Component {
   }
 
   render() {
+
     return (
       <div className="container">
         <h3 className="cityName">{location}</h3>
