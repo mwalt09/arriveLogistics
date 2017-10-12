@@ -1,6 +1,6 @@
 # arriveLogistics
 
-##Steps to get coding sample up and running
+## Steps to get coding sample up and running
 
 1. Clone repository to you local machine.
 2. Install required dependencies using `npm install`.
